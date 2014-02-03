@@ -14,18 +14,26 @@
         android:label="@string/app_name"
         android:theme="@style/GlassTheme" >
         <activity
-            android:name="com.ambergleam.geoquizglass.QuizActivity"
+            android:name="com.ambergleam.geoquizglass.MenuActivity"
+            android:enabled="true"
+            android:label="@string/app_name"
+            android:theme="@style/MenuTheme" >
+        </activity>
+
+        <service
+            android:name="com.ambergleam.geoquizglass.geoquizglass.QuizService"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
             </intent-filter>
-            <intent-filter>
-	            <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
-	        </intent-filter>
-	        <meta-data android:name="com.google.android.glass.VoiceTrigger"
-	                   android:resource="@xml/voice_trigger" />
-        </activity>
+
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_trigger" />
+        </service>
     </application>
 
 </manifest>

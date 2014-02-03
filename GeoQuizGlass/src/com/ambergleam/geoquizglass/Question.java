@@ -1,11 +1,11 @@
-package com.ambergleam.geoquiz;
+package com.ambergleam.geoquizglass;
 
-public class TrueFalse {
+public class Question {
 
 	private int mQuestion;
 	private boolean mTrueQuestion;
 	
-	public TrueFalse(int question, boolean trueQuestion) {
+	public Question(int question, boolean trueQuestion) {
 		mQuestion = question;
 		mTrueQuestion = trueQuestion;
 	}

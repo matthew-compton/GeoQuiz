@@ -16,9 +16,18 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int ic_minus=0x7f020001;
+        public static final int ic_plus=0x7f020002;
+        public static final int ic_stop=0x7f020003;
+        public static final int ic_sync=0x7f020004;
     }
     public static final class id {
         public static final int RelativeLayout=0x7f090000;
+        public static final int menu_false=0x7f090004;
+        public static final int menu_next=0x7f090005;
+        public static final int menu_previous=0x7f090006;
+        public static final int menu_stop=0x7f090007;
+        public static final int menu_true=0x7f090003;
         public static final int questionTextView=0x7f090001;
         public static final int resultTextView=0x7f090002;
     }
