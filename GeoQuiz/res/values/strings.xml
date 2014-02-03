@@ -2,16 +2,24 @@
 <resources>
 
     <string name="app_name">GeoQuiz</string>
+    <string name="title_activity_quiz">QuizActivity</string>
+    <string name="title_activity_cheat">CheatActivity</string>
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="unknown">\?\?\?</string>
+    <string name="blank"></string>
 
     <!-- Buttons -->
-    <string name="true_button">True</string>
-    <string name="false_button">False</string>
-    <string name="previous_button">Previous</string>
-    <string name="next_button">Next</string>
+    <string name="button_true">True</string>
+    <string name="button_false">False</string>
+    <string name="button_cheat">Cheat!</string>
+    <string name="button_show_answer">Show Answer</string>
+    <string name="button_back">Back</string>
 
     <!-- Toasts -->
-    <string name="correct_toast">Correct!</string>
-    <string name="incorrect_toast">Incorrect!</string>
+    <string name="toast_correct">Correct!</string>
+    <string name="toast_incorrect">Incorrect!</string>
+    <string name="toast_judgment">Correct&#8230;but cheating is wrong.</string>
+    <string name="toast_major_judgment">You cheated and still got it wrong.\nAmaze. Wow.</string>
 
     <!-- Questions -->
     <string name="question_turkey">The capital of Turkey is Constantinople.</string>
@@ -20,7 +28,7 @@
     <string name="question_africa">The source of the Nile River is in Egypt.</string>
     <string name="question_americas">The Amazon River is the longest river in the Americas.</string>
     <string name="question_asia">Lake Vaikal is the world\'s oldest and deepest freshwtaer lake.</string>
-    
+
     <!-- Image Content Descriptions -->
     <string name="content_description_previous">A button for reaching the previous question.</string>
     <string name="content_description_next">A button for reaching the next question.</string>

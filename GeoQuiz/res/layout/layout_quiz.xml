@@ -3,44 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/questionNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:gravity="right"
+        android:padding="@dimen/size_margin"
+        android:text="@string/blank"
+        android:textSize="@dimen/size_font" />
 
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:textSize="24sp"
-        android:text="@string/question_turkey" />
+        android:layout_gravity="center"
+        android:padding="@dimen/size_margin"
+        android:text="@string/question_turkey"
+        android:textSize="@dimen/size_font" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/true_button" />
+            android:layout_gravity="center"
+            android:text="@string/button_true" />
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/false_button" />
+            android:layout_gravity="center"
+            android:text="@string/button_false" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/button_cheat" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal" >
 
         <ImageButton
             android:id="@+id/previous_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:contentDescription="@string/content_description_previous"
             android:src="@drawable/arrow_left" />
 
@@ -48,6 +70,7 @@
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:contentDescription="@string/content_description_next"
             android:src="@drawable/arrow_right" />
     </LinearLayout>
