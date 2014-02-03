@@ -15,7 +15,7 @@ public class CheatActivity extends Activity {
 	private boolean mAnswerIsTrue;
 	
 	private TextView mAnswerTextView;
-	private Button mShowAnswer;
+	private Button mShowAnswer, mBack;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,14 @@ public class CheatActivity extends Activity {
 					mAnswerTextView.setText(R.string.button_false);
 				}
 				setAnswerShownResult(true);
+			}
+		});
+		
+		mBack = (Button) findViewById(R.id.buttonBack);
+		mBack.setOnClickListener(new View.OnClickListener() {	
+			@Override
+			public void onClick(View v) {
+				finish();
 			}
 		});
 	}

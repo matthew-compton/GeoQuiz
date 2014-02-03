@@ -3,8 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        android:layout_gravity="left|top" />
 
     <TextView
         android:id="@+id/textViewWarning"
@@ -19,6 +25,7 @@
         android:id="@+id/textViewAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:padding="@dimen/size_margin"
         android:text="@string/unknown"
         android:textSize="@dimen/size_font" />
@@ -27,6 +34,7 @@
         android:id="@+id/buttonShowAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
         android:text="@string/button_show_answer" />
 
 </LinearLayout>

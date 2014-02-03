@@ -6,6 +6,15 @@
     android:background="@drawable/background" >
 
     <TextView
+        android:id="@+id/questionNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:padding="@dimen/size_margin"
+        android:text="@string/blank"
+        android:textSize="@dimen/size_font" />
+    
+    <TextView
         android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -18,15 +18,15 @@ public class QuizActivity extends Activity {
 
 	private Button mTrueButton, mFalseButton, mCheatButton;
 	private ImageButton mPreviousButton, mNextButton;
-	private TextView mQuestionTextView;
+	private TextView mQuestionTextView, mQuestionNumberTextView;
 
-	private TrueFalse[] mQuestionBank = new TrueFalse[] {
-			new TrueFalse(R.string.question_africa, false),
-			new TrueFalse(R.string.question_americas, true),
-			new TrueFalse(R.string.question_asia, true),
-			new TrueFalse(R.string.question_mideast, false),
-			new TrueFalse(R.string.question_oceans, true),
-			new TrueFalse(R.string.question_turkey, false) };
+	private Question[] mQuestionBank = new Question[] {
+			new Question(R.string.question_africa, false),
+			new Question(R.string.question_americas, true),
+			new Question(R.string.question_asia, true),
+			new Question(R.string.question_mideast, false),
+			new Question(R.string.question_oceans, true),
+			new Question(R.string.question_turkey, false) };
 
 	private int mCurrentIndex = 0;
 	private boolean mIsCheater;
@@ -45,7 +45,8 @@ public class QuizActivity extends Activity {
 		setContentView(R.layout.layout_quiz);
 
 		mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
-
+		mQuestionNumberTextView = (TextView) findViewById(R.id.questionNumberTextView);
+		
 		mTrueButton = (Button) findViewById(R.id.true_button);
 		mTrueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -134,6 +135,8 @@ public class QuizActivity extends Activity {
 	private void updateQuestion() {
 		int question = mQuestionBank[mCurrentIndex].getQuestion();
 		mQuestionTextView.setText(question);
+		String questionNumber = (mCurrentIndex+1)+"/"+mQuestionBank.length;
+		mQuestionNumberTextView.setText(questionNumber);
 	}
 
 	@Override

@@ -5,19 +5,20 @@
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_cheat">CheatActivity</string>
     <string name="warning_text">Are you sure you want to do this?</string>
-	<string name="unknown">\?\?\?</string>
-    
-    
+    <string name="unknown">\?\?\?</string>
+    <string name="blank"></string>
+
     <!-- Buttons -->
     <string name="button_true">True</string>
     <string name="button_false">False</string>
     <string name="button_cheat">Cheat!</string>
     <string name="button_show_answer">Show Answer</string>
+    <string name="button_back">Back</string>
 
     <!-- Toasts -->
     <string name="toast_correct">Correct!</string>
     <string name="toast_incorrect">Incorrect!</string>
-    <string name="toast_judgment">Cheating is wrong.</string>
+    <string name="toast_judgment">Correct&#8230;but cheating is wrong.</string>
     <string name="toast_major_judgment">You cheated and still got it wrong.\nAmaze. Wow.</string>
 
     <!-- Questions -->
