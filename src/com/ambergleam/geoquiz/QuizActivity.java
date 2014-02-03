@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
-	private final String TAG = "com.ambergleam.geoquiz";
+	private static final String TAG = "com.ambergleam.geoquiz";
+	private static final String KEY_INDEX = "index";
 	
 	private Button mTrueButton, mFalseButton;
 	private ImageButton mPreviousButton, mNextButton;
@@ -31,6 +32,12 @@ public class QuizActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate(...) called");
+		
+		// Check for saved state
+		if (savedInstanceState != null) {
+			mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+		}
+		
 		setContentView(R.layout.activity_quiz);
 
 		mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
@@ -91,6 +98,13 @@ public class QuizActivity extends Activity {
 		mQuestionTextView.setText(question);
 	}
 
+	@Override
+	protected void onSaveInstanceState(Bundle savedInstanceState) {
+		super.onSaveInstanceState(savedInstanceState);
+		Log.i(TAG, "onSaveInstanceState");
+		savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+	};
+	
 	@Override
 	public void onStart() {
 		super.onStart();
