@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GeoQuiz</string>
+    <string name="voice_trigger">GeoQuiz</string>
+    
+    <!-- Samples -->
+    <string name="sample_question">The capital of Turkey is Constantinople.</string>
+    <string name="sample_result">Correct!</string>
+    
+    <!-- Menu -->
+    <string name="menu_true">True</string>
+    <string name="menu_false">False</string>
+    <string name="menu_next">Next</string>
+    <string name="menu_previous">Previous</string>
+    <string name="menu_stop">Stop</string>
+
+    <!-- Results -->
+    <string name="result_correct">Correct!</string>
+    <string name="result_incorrect">Incorrect!</string>
+    
+    <!-- Questions -->
+    <string name="question_turkey">The capital of Turkey is Constantinople.</string>
+    <string name="question_oceans">The Pacific Ocean is larger than the Atlantic Ocean.</string>
+    <string name="question_mideast">The Suez Canal connects the Red Sea and the Indian Ocean.</string>
+    <string name="question_africa">The source of the Nile River is in Egypt.</string>
+    <string name="question_americas">The Amazon River is the longest river in the Americas.</string>
+    <string name="question_asia">Lake Vaikal is the world\'s oldest and deepest freshwtaer lake.</string>
+    
+</resources>
