@@ -35,18 +35,19 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int FrameLayout=0x7f08000b;
         public static final int buttonBack=0x7f080000;
         public static final int buttonShowAnswer=0x7f080003;
-        public static final int cheat_button=0x7f080008;
-        public static final int false_button=0x7f080007;
-        public static final int next_button=0x7f08000a;
-        public static final int previous_button=0x7f080009;
-        public static final int questionNumberTextView=0x7f080004;
-        public static final int questionTextView=0x7f080005;
+        public static final int cheat_button=0x7f080009;
+        public static final int false_button=0x7f080008;
+        public static final int next_button=0x7f08000b;
+        public static final int previous_button=0x7f08000a;
+        public static final int questionNumberTextView=0x7f080005;
+        public static final int questionTextView=0x7f080006;
         public static final int textViewAnswer=0x7f080002;
+        public static final int textViewBuildVersion=0x7f08000c;
+        public static final int textViewStatus=0x7f080004;
         public static final int textViewWarning=0x7f080001;
-        public static final int true_button=0x7f080006;
+        public static final int true_button=0x7f080007;
     }
     public static final class layout {
         public static final int layout_cheat=0x7f030000;

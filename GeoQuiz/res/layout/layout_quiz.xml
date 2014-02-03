@@ -5,15 +5,31 @@
     android:background="@drawable/background"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/questionNumberTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:gravity="right"
-        android:padding="@dimen/size_margin"
-        android:text="@string/blank"
-        android:textSize="@dimen/size_font" />
+        android:layout_gravity="top|center" >
+
+        <TextView
+            android:id="@+id/questionNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="@dimen/size_margin"
+            android:text="@string/blank"
+            android:textSize="@dimen/size_font" />
+
+        <TextView
+            android:id="@+id/textViewStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="@dimen/size_margin"
+            android:text="@string/blank"
+            android:textSize="@dimen/size_font" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/questionTextView"
@@ -75,4 +91,13 @@
             android:src="@drawable/arrow_right" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textViewBuildVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/size_margin"
+        android:text="@string/blank"
+        android:textSize="@dimen/size_font" />
+    
 </LinearLayout>

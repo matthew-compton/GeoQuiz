@@ -1,7 +1,10 @@
 package com.ambergleam.geoquiz;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +21,7 @@ public class QuizActivity extends Activity {
 
 	private Button mTrueButton, mFalseButton, mCheatButton;
 	private ImageButton mPreviousButton, mNextButton;
-	private TextView mQuestionTextView, mQuestionNumberTextView;
+	private TextView mQuestionTextView, mQuestionNumberTextView, mStatus, mBuildVersion;
 
 	private Question[] mQuestionBank = new Question[] {
 			new Question(R.string.question_africa, false),
@@ -31,6 +34,7 @@ public class QuizActivity extends Activity {
 	private int mCurrentIndex = 0;
 	private boolean mIsCheater;
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,8 +48,17 @@ public class QuizActivity extends Activity {
 
 		setContentView(R.layout.layout_quiz);
 
+		if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB) {
+			ActionBar actionBar = getActionBar();
+			actionBar.setSubtitle("Bodies of Water");
+		}
+
 		mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
 		mQuestionNumberTextView = (TextView) findViewById(R.id.questionNumberTextView);
+		mStatus = (TextView) findViewById(R.id.textViewStatus);
+		
+		mBuildVersion = (TextView) findViewById(R.id.textViewBuildVersion);
+		mBuildVersion.setText("API level " + Build.VERSION.SDK_INT);
 		
 		mTrueButton = (Button) findViewById(R.id.true_button);
 		mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +122,8 @@ public class QuizActivity extends Activity {
 		}
 		mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_IS_SHOWN,
 				false);
+		mQuestionBank[mCurrentIndex].setCheatedOn(mIsCheater);
+
 	}
 
 	private void checkAnswer(boolean userPressedTrue) {
@@ -135,8 +150,15 @@ public class QuizActivity extends Activity {
 	private void updateQuestion() {
 		int question = mQuestionBank[mCurrentIndex].getQuestion();
 		mQuestionTextView.setText(question);
-		String questionNumber = (mCurrentIndex+1)+"/"+mQuestionBank.length;
+		String questionNumber = (mCurrentIndex + 1) + "/"
+				+ mQuestionBank.length;
 		mQuestionNumberTextView.setText(questionNumber);
+		updateStatus();
+	}
+
+	private void updateStatus() {
+		mStatus.setText(((Boolean) mQuestionBank[mCurrentIndex].getCheatedOn())
+				.toString());
 	}
 
 	@Override
@@ -157,6 +179,7 @@ public class QuizActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume(...) called");
+		updateStatus();
 	}
 
 	@Override
