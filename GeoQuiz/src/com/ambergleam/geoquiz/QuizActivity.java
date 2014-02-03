@@ -1,6 +1,7 @@
 package com.ambergleam.geoquiz;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +14,9 @@ public class QuizActivity extends Activity {
 
 	private static final String TAG = "com.ambergleam.geoquiz";
 	private static final String KEY_INDEX = "index";
-	
-	private Button mTrueButton, mFalseButton;
+	private static final String KEY_CHEATER = "cheater";
+
+	private Button mTrueButton, mFalseButton, mCheatButton;
 	private ImageButton mPreviousButton, mNextButton;
 	private TextView mQuestionTextView;
 
@@ -27,21 +29,22 @@ public class QuizActivity extends Activity {
 			new TrueFalse(R.string.question_turkey, false) };
 
 	private int mCurrentIndex = 0;
+	private boolean mIsCheater;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate(...) called");
-		
+
 		// Check for saved state
 		if (savedInstanceState != null) {
 			mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+			mIsCheater = savedInstanceState.getBoolean(KEY_CHEATER, false);
 		}
-		
-		setContentView(R.layout.activity_quiz);
+
+		setContentView(R.layout.layout_quiz);
 
 		mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
-		updateQuestion();
 
 		mTrueButton = (Button) findViewById(R.id.true_button);
 		mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -65,30 +68,65 @@ public class QuizActivity extends Activity {
 			public void onClick(View v) {
 				mCurrentIndex = (mCurrentIndex - 1);
 				if (mCurrentIndex < 0) {
-					mCurrentIndex = mQuestionBank.length-1;
+					mCurrentIndex = mQuestionBank.length - 1;
 				}
+				mIsCheater = false;
 				updateQuestion();
 			}
 		});
-		
+
 		mNextButton = (ImageButton) findViewById(R.id.next_button);
 		mNextButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+				mIsCheater = false;
 				updateQuestion();
 			}
 		});
 
+		mCheatButton = (Button) findViewById(R.id.cheat_button);
+		mCheatButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Start CheatActivity
+				Intent i = new Intent(QuizActivity.this, CheatActivity.class);
+				boolean answerIsTrue = mQuestionBank[mCurrentIndex]
+						.isTrueQuestion();
+				i.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
+				startActivityForResult(i, 0);
+			}
+		});
+
+		updateQuestion();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data == null) {
+			return;
+		}
+		mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_IS_SHOWN,
+				false);
 	}
 
 	private void checkAnswer(boolean userPressedTrue) {
 		boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
+
 		int messageResId = 0;
-		if (userPressedTrue == answerIsTrue) {
-			messageResId = R.string.correct_toast;
+
+		if (mIsCheater) {
+			if (userPressedTrue == answerIsTrue) {
+				messageResId = R.string.toast_judgment;
+			} else {
+				messageResId = R.string.toast_major_judgment;
+			}
 		} else {
-			messageResId = R.string.incorrect_toast;
+			if (userPressedTrue == answerIsTrue) {
+				messageResId = R.string.toast_correct;
+			} else {
+				messageResId = R.string.toast_incorrect;
+			}
 		}
 		Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
 	}
@@ -103,8 +141,9 @@ public class QuizActivity extends Activity {
 		super.onSaveInstanceState(savedInstanceState);
 		Log.i(TAG, "onSaveInstanceState");
 		savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+		savedInstanceState.putBoolean(KEY_CHEATER, mIsCheater);
 	};
-	
+
 	@Override
 	public void onStart() {
 		super.onStart();
