@@ -16,9 +16,5 @@
         android:id="@+id/menu_previous"
         android:icon="@drawable/ic_minus"
         android:title="@string/menu_previous"/>
-    <item
-        android:id="@+id/menu_stop"
-        android:icon="@drawable/ic_stop"
-        android:title="@string/menu_stop"/>
 
 </menu>

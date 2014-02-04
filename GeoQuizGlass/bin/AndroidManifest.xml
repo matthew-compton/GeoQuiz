@@ -20,8 +20,8 @@
             android:theme="@style/MenuTheme" >
         </activity>
 
-        <service
-            android:name="com.ambergleam.geoquizglass.geoquizglass.QuizService"
+        <activity
+            android:name="com.ambergleam.geoquizglass.QuizActivity"
             android:enabled="true"
             android:exported="true"
             android:icon="@drawable/ic_launcher"
@@ -33,7 +33,7 @@
             <meta-data
                 android:name="com.google.android.glass.VoiceTrigger"
                 android:resource="@xml/voice_trigger" />
-        </service>
+        </activity>
     </application>
 
 </manifest>

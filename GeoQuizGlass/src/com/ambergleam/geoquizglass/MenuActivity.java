@@ -1,7 +1,6 @@
 package com.ambergleam.geoquizglass;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,24 +34,21 @@ public class MenuActivity extends Activity {
         // Handle item selection.
         switch (item.getItemId()) {
             case R.id.menu_true:
-            	QuizService.checkAnswer(this, true);
+            	QuizActivity.checkAnswer(true);
                 return true;
             case R.id.menu_false:
-            	QuizService.checkAnswer(this, false);
+            	QuizActivity.checkAnswer(false);
                 return true;
             case R.id.menu_next:
-            	QuizService.mCurrentIndex = (QuizService.mCurrentIndex + 1) % QuizService.mQuestionBank.length;
-                QuizService.updateQuestion(this);
+            	QuizActivity.mCurrentIndex = (QuizActivity.mCurrentIndex + 1) % QuizActivity.mQuestionBank.length;
+            	QuizActivity.updateQuestion();
                 return true;
             case R.id.menu_previous:
-            	QuizService.mCurrentIndex = (QuizService.mCurrentIndex - 1);
-				if (QuizService.mCurrentIndex < 0) {
-					QuizService.mCurrentIndex = QuizService.mQuestionBank.length-1;
+            	QuizActivity.mCurrentIndex = (QuizActivity.mCurrentIndex - 1);
+				if (QuizActivity.mCurrentIndex < 0) {
+					QuizActivity.mCurrentIndex = QuizActivity.mQuestionBank.length-1;
 				}
-				QuizService.updateQuestion(this);
-                return true;
-            case R.id.menu_stop:
-                stopService(new Intent(this, QuizService.class));
+				QuizActivity.updateQuestion();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

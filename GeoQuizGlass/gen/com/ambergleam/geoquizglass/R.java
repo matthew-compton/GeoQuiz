@@ -26,10 +26,9 @@ public final class R {
         public static final int menu_false=0x7f090004;
         public static final int menu_next=0x7f090005;
         public static final int menu_previous=0x7f090006;
-        public static final int menu_stop=0x7f090007;
         public static final int menu_true=0x7f090003;
-        public static final int questionTextView=0x7f090001;
-        public static final int resultTextView=0x7f090002;
+        public static final int questionTextView=0x7f090002;
+        public static final int resultTextView=0x7f090001;
     }
     public static final class layout {
         public static final int layout_quiz=0x7f030000;
