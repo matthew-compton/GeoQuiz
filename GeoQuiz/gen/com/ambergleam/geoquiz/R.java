@@ -11,10 +11,16 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int black=0x7f040004;
         public static final int gradient_end=0x7f040001;
         /**  Gradient Colors 
          */
         public static final int gradient_start=0x7f040000;
+        public static final int green=0x7f040003;
+        /**  Colors 
+         */
+        public static final int red=0x7f040002;
+        public static final int white=0x7f040005;
     }
     public static final class dimen {
         /**  Font size 
@@ -41,11 +47,11 @@ public final class R {
         public static final int false_button=0x7f080008;
         public static final int next_button=0x7f08000b;
         public static final int previous_button=0x7f08000a;
-        public static final int questionNumberTextView=0x7f080005;
+        public static final int questionNumberTextView=0x7f080004;
         public static final int questionTextView=0x7f080006;
         public static final int textViewAnswer=0x7f080002;
         public static final int textViewBuildVersion=0x7f08000c;
-        public static final int textViewStatus=0x7f080004;
+        public static final int textViewStatus=0x7f080005;
         public static final int textViewWarning=0x7f080001;
         public static final int true_button=0x7f080007;
     }

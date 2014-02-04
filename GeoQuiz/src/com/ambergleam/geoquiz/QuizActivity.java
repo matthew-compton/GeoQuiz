@@ -21,7 +21,8 @@ public class QuizActivity extends Activity {
 
 	private Button mTrueButton, mFalseButton, mCheatButton;
 	private ImageButton mPreviousButton, mNextButton;
-	private TextView mQuestionTextView, mQuestionNumberTextView, mStatus, mBuildVersion;
+	private TextView mQuestionTextView, mQuestionNumberTextView, mStatus,
+			mBuildVersion;
 
 	private Question[] mQuestionBank = new Question[] {
 			new Question(R.string.question_africa, false),
@@ -56,10 +57,10 @@ public class QuizActivity extends Activity {
 		mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
 		mQuestionNumberTextView = (TextView) findViewById(R.id.questionNumberTextView);
 		mStatus = (TextView) findViewById(R.id.textViewStatus);
-		
+
 		mBuildVersion = (TextView) findViewById(R.id.textViewBuildVersion);
 		mBuildVersion.setText("API level " + Build.VERSION.SDK_INT);
-		
+
 		mTrueButton = (Button) findViewById(R.id.true_button);
 		mTrueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -137,10 +138,16 @@ public class QuizActivity extends Activity {
 			} else {
 				messageResId = R.string.toast_major_judgment;
 			}
+			mStatus.setText("Cheated");
+			mStatus.setTextColor(getResources().getColor(R.color.red));	
 		} else {
 			if (userPressedTrue == answerIsTrue) {
+				mStatus.setText(R.string.toast_correct);
+				mStatus.setTextColor(getResources().getColor(R.color.green));	
 				messageResId = R.string.toast_correct;
 			} else {
+				mStatus.setText(R.string.toast_incorrect);
+				mStatus.setTextColor(getResources().getColor(R.color.white));	
 				messageResId = R.string.toast_incorrect;
 			}
 		}
@@ -153,12 +160,8 @@ public class QuizActivity extends Activity {
 		String questionNumber = (mCurrentIndex + 1) + "/"
 				+ mQuestionBank.length;
 		mQuestionNumberTextView.setText(questionNumber);
-		updateStatus();
-	}
-
-	private void updateStatus() {
-		mStatus.setText(((Boolean) mQuestionBank[mCurrentIndex].getCheatedOn())
-				.toString());
+		mStatus.setText(R.string.blank);
+		mStatus.setTextColor(getResources().getColor(R.color.black));
 	}
 
 	@Override
@@ -179,7 +182,6 @@ public class QuizActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume(...) called");
-		updateStatus();
 	}
 
 	@Override

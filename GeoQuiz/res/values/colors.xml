@@ -5,4 +5,10 @@
     <color name="gradient_start">#a6e2f9</color>
     <color name="gradient_end">#277695</color>
 
+    <!-- Colors -->
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    
 </resources>
